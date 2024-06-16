@@ -1,0 +1,39 @@
+<!-- lib/currency_converter_web/templates/page_html/index.html.eex -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Transactions List</title>
+  </head>
+  <body>
+    <h1>List of Transactions</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Inserted At</th>
+          <th>From Currency</th>
+          <th>To Currency</th>
+          <th>From Amount</th>
+          <th>Conversion Rate</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for transaction <- @transactions do %>
+          <tr>
+            <td><%= transaction.user_id %></td>
+            <td><%= transaction.inserted_at %></td>
+            <td><%= transaction.from_currency %></td>
+            <td><%= transaction.to_currency %></td>
+            <td><%= transaction.from_amount %></td>
+            <td><%= transaction.conversion_rate %></td>
+            <td><%= transaction.to_currency %> <%= transaction.result %></td>
+            <td><%= transaction.datetime %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>

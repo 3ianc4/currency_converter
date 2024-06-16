@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Created</title>
+  </head>
+  <body>
+    <h2>User Created with success!</h2>
+    <p>User ID: <%= @user.id %></p>
+    <p>Username: <%= @user.username %></p>
+    <br />
+    <h1>Tools</h1>
+    <h3>To view your transactions:</h3>
+
+    <form action="/api/transactions" method="get">
+      <input type="hidden" name="id" value={@user.id} />
+      <button type="submit">List Transactions for User</button>
+    </form>
+    <br />
+    <h3>Convert currency:</h3>
+    <form action="/api/convert_currencies" method="post">
+      <input type="hidden" name="user_id" value={@user.id} />
+      <label for="from_currency">From Currency:</label>
+      <select id="from_currency" name="from_currency" required>
+        <option value="BRL">BRL</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="JPY">JPY</option>
+      </select>
+      <br />
+      <label for="to_currency">To Currency:</label>
+      <select id="to_currency" name="to_currency" required>
+        <option value="BRL">BRL</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="JPY">JPY</option>
+      </select>
+      <br />
+      <label for="amount">Amount (format: integer or decimal (e.g., 12.4))</label>
+      <input
+        type="number"
+        id="from_amount"
+        name="from_amount"
+        required
+        min="-9223372036854775808"
+        max="9223372036854775807"
+        step="0.01"
+      />
+      <br />
+      <button type="submit">Convert Currency</button>
+    </form>
+  </body>
+</html>

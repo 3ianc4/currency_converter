@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Currency Conversion Success</title>
+  </head>
+  <body>
+    <h1>Currency Converted with Success!</h1>
+    <p>Details of the conversion:</p>
+    <ul>
+      <li><strong>User ID:</strong> <%= @currency["user_id"] %></li>
+      <li><strong>From Currency:</strong> <%= @currency["from_currency"] %></li>
+      <li><strong>To Currency:</strong> <%= @currency["to_currency"] %></li>
+      <li><strong>Conversion rate:</strong> <%= @currency["conversion_rate"] %></li>
+      <li><strong>Amount to convert:</strong> <%= @currency["from_amount"] %></li>
+      <li><strong>Result:</strong> <%= @currency["to_currency"] %> <%= @currency["result"] %></li>
+      <li><strong>Result:</strong> <%= @currency["datetime"] %></li>
+    </ul>
+
+    <form action="/api/users/" method="post">
+      <input type="hidden" name="user_id" value={@currency["user_id"]} />
+      <button type="submit">Go Back to Conversion Page</button>
+    </form>
+  </body>
+</html>
