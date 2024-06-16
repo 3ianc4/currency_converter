@@ -16,5 +16,9 @@ defmodule CurrencyConverter.User do
     timestamps()
   end
 
-  def changeset(model, params), do: cast(model, params, [:username])
+  def changeset(model \\ %__MODULE__{}, params) do
+    model
+    |> cast(params, [:username])
+    |> unique_constraint(:username)
+  end
 end
