@@ -1,18 +1,52 @@
-# CurrencyConverter
+# Currency Converter
 
-To start your Phoenix server:
+## Introduction
+This API is a currency converter that facilitates conversions between BRL, USD, EUR, and JPY, providing real-time exchange rates for accurate financial calculations.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Install
+### Prerequisites
+- Ensure you have ASDF installed. You can follow the instructions on the [ASDF documentation](https://asdf-vm.com/guide/getting-started.html#_2-install-asdf).
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+```
+# Clone the repository:
+git clone https://github.com/guzenski/currency_converter
+cd currency_converter
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+# Install Elixir and Erlang versions specified in .tool-versions:
+asdf install
 
-## Learn more
+# Install dependencies
+mix deps.get
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+# Compile project
+mix deps.compile
+mix compile
+
+# Run test
+mix test
+
+# Run
+iex -S mix
+```
+
+The API will be running at http://localhost:4000.
+All endpoints can be accessed in the main page.
+
+## Features
+
+- Create a user
+- Convert between BRL, USD, EUR, and JPY
+- List user's conversions
+
+## Architecture
+
+- **Controller Layer**: Handles incoming requests and routes them to the appropriate service.
+- **Context Layer**: Contains the business logic for fetching and converting currency rates.
+- **Service Layer**: Manages data retrieval from external exchange rate APIs.
+
+## Technologies
+
+- **Elixir**
+- **Phoenix**
+- **ASDF**: Utilized for managing the project's runtime versions and ensuring consistency across development environments.
+- **HTTPoison**: Employed for making HTTP requests.
