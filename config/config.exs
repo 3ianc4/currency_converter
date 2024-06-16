@@ -28,6 +28,10 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :currency_converter, CurrencyConverter.Converter,
+  base_api_url: "https://api.apilayer.com/exchangerates_data/convert?",
+  api_key: "agMbfJZCYnHA0SYCLidCivZFJUYCiDEP"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
