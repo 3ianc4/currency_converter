@@ -24,13 +24,12 @@
         <%= for transaction <- @transactions do %>
           <tr>
             <td><%= transaction.user_id %></td>
-            <td><%= transaction.inserted_at %></td>
+            <td><%= transaction.inserted_at %> UTC</td>
             <td><%= transaction.from_currency %></td>
             <td><%= transaction.to_currency %></td>
             <td><%= transaction.from_amount %></td>
             <td><%= transaction.conversion_rate %></td>
             <td><%= transaction.to_currency %> <%= transaction.result %></td>
-            <td><%= transaction.datetime %></td>
           </tr>
         <% end %>
       </tbody>

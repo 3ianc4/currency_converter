@@ -5,7 +5,7 @@
     <title>Currency Conversion Success</title>
   </head>
   <body>
-    <h1>Currency Converted with Success!</h1>
+    <h1>Currency converted with success</h1>
     <p>Details of the conversion:</p>
     <ul>
       <li><strong>User ID:</strong> <%= @currency["user_id"] %></li>
@@ -19,7 +19,7 @@
 
     <form action="/api/users/" method="post">
       <input type="hidden" name="user_id" value={@currency["user_id"]} />
-      <button type="submit">Go Back to Conversion Page</button>
+      <button type="submit">Go Back to Tools Page</button>
     </form>
   </body>
 </html>

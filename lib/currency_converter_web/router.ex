@@ -24,7 +24,7 @@ defmodule CurrencyConverterWeb.Router do
 
     post "/users", UsersController, :create
     get "/transactions", TransactionsController, :list
-    post "/convert_currencies", TransactionsController, :convert_currencies
+    post "/convert-currencies", TransactionsController, :convert_currencies
   end
 
   if Application.compile_env(:currency_converter, :dev_routes) do

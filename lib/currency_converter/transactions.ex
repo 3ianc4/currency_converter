@@ -60,7 +60,7 @@ defmodule CurrencyConverter.Transactions do
       iex> list_transactions(%{"id" => "non_existent_user_id_or_no_transactions_found"})
       {:error, :not_found}
   """
-  def list_transactions(%{"id" => id}) do
+  def list_transactions(%{"user_id" => id}) do
     transactions = Repo.all(from t in Transaction, where: t.user_id == ^id)
 
     case transactions do
@@ -137,7 +137,7 @@ defmodule CurrencyConverter.Transactions do
       "from_amount" => query["amount"],
       "conversion_rate" => info["rate"],
       "result" => result,
-      "datetime" => DateTime.utc_now()
+      "datetime" => NaiveDateTime.utc_now()
     }
   end
 

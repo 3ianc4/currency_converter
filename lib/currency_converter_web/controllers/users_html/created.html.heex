@@ -5,10 +5,7 @@
     <title>User Created</title>
   </head>
   <body>
-    <h2>User Created with success!</h2>
-    <p>User ID: <%= @user.id %></p>
-    <p>Username: <%= @user.username %></p>
-    <br />
+    <h2>Welcome, <%= @user.username %></h2>
     <h1>Tools</h1>
     <h3>To view your transactions:</h3>
 
@@ -18,7 +15,7 @@
     </form>
     <br />
     <h3>Convert currency:</h3>
-    <form action="/api/convert_currencies" method="post">
+    <form action="/api/convert-currencies" method="post">
       <input type="hidden" name="user_id" value={@user.id} />
       <label for="from_currency">From Currency:</label>
       <select id="from_currency" name="from_currency" required>

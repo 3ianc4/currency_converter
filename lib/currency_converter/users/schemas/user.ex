@@ -20,5 +20,6 @@ defmodule CurrencyConverter.User do
     model
     |> cast(params, [:username])
     |> unique_constraint(:username)
+    |> validate_required(:username)
   end
 end
