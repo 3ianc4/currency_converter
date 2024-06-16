@@ -6,7 +6,8 @@ defmodule CurrencyConverter.UsersTest do
 
   describe "users" do
     test "create_user/0 creates a user" do
-      assert {:ok, %User{id: _id}} = Users.create_user(%{})
+      assert {:ok, %User{id: _id, username: "username_test"}} =
+               Users.create_user(%{"username" => "username_test"})
     end
   end
 end

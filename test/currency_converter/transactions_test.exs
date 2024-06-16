@@ -33,18 +33,18 @@ defmodule CurrencyConverter.TransactionsTest do
       {:ok, %{id: transaction_id}} = Transactions.insert_transaction(params)
 
       assert {:ok, [%Transaction{id: ^transaction_id}]} =
-               Transactions.list_transactions(%{"id" => user_id})
+               Transactions.list_transactions(%{"user_id" => user_id})
     end
 
     test "list_transactions/1 with returns error when user doesnt have transactions" do
       user = user_factory()
 
-      assert {:error, :not_found} = Transactions.list_transactions(%{"id" => user.id})
+      assert {:error, :not_found} = Transactions.list_transactions(%{"user_id" => user.id})
     end
 
     test "list_transactions/1 with returns error when user is not found" do
       assert {:error, :not_found} =
-               Transactions.list_transactions(%{"id" => Ecto.UUID.generate()})
+               Transactions.list_transactions(%{"user_id" => Ecto.UUID.generate()})
     end
 
     test "convert_currency/1 with valid data returns amount converted" do
@@ -57,6 +57,20 @@ defmodule CurrencyConverter.TransactionsTest do
 
     test "convert_currency/1 fails with invalid data" do
       params = %{}
+
+      {:error, "Failed to fetch exchange rates. Status code: 400"} =
+        Transactions.convert_currency(params)
+    end
+
+    test "convert_currency/1 fails with invalid currency codes" do
+      params = transaction_factory(%{from_currency: "INVALID", to_currency: "INVALID"})
+
+      {:error, "Failed to fetch exchange rates. Status code: 400"} =
+        Transactions.convert_currency(params)
+    end
+
+    test "convert_currency/1 fails with negative amount" do
+      params = transaction_factory(%{from_amount: -100})
 
       {:error, "Failed to fetch exchange rates. Status code: 400"} =
         Transactions.convert_currency(params)
