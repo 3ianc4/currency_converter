@@ -19,6 +19,8 @@ jobs:
 
     name: Build and test
     runs-on: ubuntu-latest
+    env:
+      MIX_ENV: test
 
     steps:
     - uses: actions/checkout@v4
