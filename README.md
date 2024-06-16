@@ -4,13 +4,15 @@
 This API is a currency converter that facilitates conversions between BRL, USD, EUR, and JPY, providing real-time exchange rates for accurate financial calculations.
 
 ## Install
+
 ### Prerequisites
-- Ensure you have ASDF installed. You can follow the instructions on the [ASDF documentation](https://asdf-vm.com/guide/getting-started.html#_2-install-asdf).
+Ensure you have ASDF installed. You can follow the instructions on the [ASDF documentation](https://asdf-vm.com/guide/getting-started.html#_2-install-asdf).
 
 ```
 # Clone the repository:
 
 git clone https://github.com/guzenski/currency_converter
+
 cd currency_converter
 
 # Install Elixir and Erlang versions specified in .tool-versions:
@@ -24,6 +26,7 @@ mix deps.get
 # Compile project
 
 mix deps.compile
+
 mix compile
 
 # Run test
@@ -42,10 +45,12 @@ The API will be running at http://localhost:4000.
 All endpoints can be accessed in the main page.
 You can also test each endpoint with `curl` or `postman`, you will receive a HTML page.
 
-# Creating a user
+## Creating a user
 
-**POST /api/users** - To create a user
-Required parameters: `username`: string
+**POST /api/users**\
+To create a user\
+*Required parameters*:\
+`username`: string
 
 ```
 curl -X POST \
@@ -56,8 +61,10 @@ curl -X POST \
 
 As result you can get user_id with the returned data for the next steps.
 
-**GET /api/transactions** - To list users transactions
-Required parameters: `user_id`: uuid
+**GET /api/transactions**\
+To list users transactions\
+*Required parameters*:\
+`user_id`: uuid
 ```
 curl -X GET \
      -H "Content-Type: application/json" \
@@ -65,11 +72,12 @@ curl -X GET \
      http://localhost:4000/api/transactions
 ```
 
-**POST /api/convert-currencies** - To convert a currency
-Required parameters:
-`user_id`: uuid
-`from_currency`: string (must be EUR, USD, JPY or BRL)
-`to_currency`: string (must be EUR, USD, JPY or BRL)
+**POST /api/convert-currencies**\
+To convert a currency\
+**Required parameters**:\
+`user_id`: uuid\
+`from_currency`: string (must be EUR, USD, JPY or BRL)\
+`to_currency`: string (must be EUR, USD, JPY or BRL)\
 `from_amount`: float or integer
 
 ```
@@ -77,7 +85,7 @@ curl -X POST \
      -H "Content-Type: application/json" \
      -d '{"user_id": "some-user-id", "from_currency": "BRL", "to_currency": "USD", "from_amount": 1000}' \
      http://localhost:4000/api/convert-currencies
-     ```
+```
 
 ## Features
 
