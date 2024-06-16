@@ -7,10 +7,10 @@ defmodule CurrencyConverterWeb.TransactionsController do
   def list(conn, params) do
     case Transactions.list_transactions(params) do
       {:ok, transactions} ->
-      conn
-      |> put_status(:ok)
-      |> render(:list, transactions: transactions, layout: false)
-    
+        conn
+        |> put_status(:ok)
+        |> render(:list, transactions: transactions, layout: false)
+
       {:error, :not_found} ->
         conn
         |> put_status(:not_found)
