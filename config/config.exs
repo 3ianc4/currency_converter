@@ -30,7 +30,7 @@ config :phoenix, :json_library, Jason
 
 config :currency_converter, CurrencyConverter.Converter,
   base_api_url: "https://api.apilayer.com/exchangerates_data/convert?",
-  api_key: "agMbfJZCYnHA0SYCLidCivZFJUYCiDEP"
+  api_key: "tEb4kVvus0jrHIaUpKz1GTeLLsJNBs6X"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

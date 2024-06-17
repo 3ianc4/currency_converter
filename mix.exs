@@ -19,7 +19,7 @@ defmodule CurrencyConverter.MixProject do
   def application do
     [
       mod: {CurrencyConverter.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :retry]
     ]
   end
 
@@ -47,7 +47,8 @@ defmodule CurrencyConverter.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:httpoison, "~> 2.0"},
-      {:credo, "~> 1.5", only: [:dev, :test]}
+      {:credo, "~> 1.5", only: [:dev, :test]},
+      {:retry, "~> 0.18"}
     ]
   end
 

@@ -20,8 +20,8 @@ config :currency_converter, CurrencyConverterWeb.Endpoint,
   secret_key_base: "UZyTZbHs8J+Q1Auzq8//migF32r0RRdw5PLYO0Ing3sKyYcaxNmLQOOHxCwQJ2fJ",
   server: false
 
-# Print only warnings and errors during test
-config :logger, level: :warning
-
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :logger, level: :critical
+config :logger, :console, level: :critical
