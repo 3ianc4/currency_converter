@@ -31,6 +31,10 @@ mix compile
 
 # Run test
 
+mix ecto.create
+
+mix ecto.migrate 
+
 mix test
 
 # Run
