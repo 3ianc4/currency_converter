@@ -1,6 +1,10 @@
 defmodule CurrencyConverter.Transaction do
   @moduledoc """
   Representation of a transaction.
+
+  Implementation details:
+  - `amount` and `result`: The amount of currency and the result of conversion, represented in cents (integer).
+  This approach is used to avoid issues with floating-point arithmetic in financial calculations.
   """
 
   use Ecto.Schema
