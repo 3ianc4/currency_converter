@@ -105,3 +105,7 @@ curl -X POST \
 - **Phoenix**
 - **ASDF**: Utilized for managing the project's runtime versions and ensuring consistency across development environments.
 - **HTTPoison**: Employed for making HTTP requests.
+
+## Considerations
+
+My primary focus was on the backend functionalities. As such, I did not place much emphasis on user experience and front-end design.
